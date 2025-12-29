@@ -91,9 +91,9 @@ Run the Streamlit app:
 bash
 Copy code
 streamlit run app.py
-Open https://abhi6378-high-quality-content-generator-app-zd3axt.streamlit.app/
+Open the live app
 
-Enter your Gemini API key in the sidebar
+Enter your Gemini API key
 
 Enter a content goal
 
@@ -105,7 +105,6 @@ Project Structure
 css
 Copy code
 High-Quality-content-Generator/
-│
 ├── app.py
 ├── requirements.txt
 ├── README.md
