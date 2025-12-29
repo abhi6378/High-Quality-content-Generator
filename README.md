@@ -35,6 +35,7 @@ graph LR
     
     style User fill:#f9f,stroke:#333,stroke-width:2px
     style Result fill:#9f9,stroke:#333,stroke-width:2px
+    
 🚀 Why Multi-Agent?
 Most LLM applications suffer from "Jack of all trades, master of none." By using a Multi-Agent Architecture, we achieve:
 
