@@ -21,20 +21,21 @@ We utilize **Role-Based Agent Engineering** to ensure specific accountability.
 
 ---
 
+---
+
 ## 🔄 Task Flow Architecture
 
-This project uses a **Sequential Process** architecture. The output of one agent becomes the context for the next.
+This project uses a **Sequential Process** architecture.  
+The output of one agent becomes the context for the next.
 
 ```mermaid
 graph LR
-    User[User Input] --> A[🧠 Planner]
-    A -- Outline --> B[🔍 Researcher]
-    B -- Facts & Data --> C[✍️ Writer]
-    C -- Draft --> D[⚖️ Reviewer]
-    D -- Final Polish --> Result[📄 Final Report]
-    
-    style User fill:#f9f,stroke:#333,stroke-width:2px
-    style Result fill:#9f9,stroke:#333,stroke-width:2px
+    User[User Input] --> A[Planner]
+    A -->|Outline| B[Researcher]
+    B -->|Facts & Data| C[Writer]
+    C -->|Draft| D[Reviewer]
+    D -->|Final Polish| Result[Final Report]
+
     
 🚀 Why Multi-Agent?
 Most LLM applications suffer from "Jack of all trades, master of none." By using a Multi-Agent Architecture, we achieve:
