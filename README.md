@@ -1,7 +1,6 @@
 # 🚀 High Quality Content Generator
 
 **🔴 Live Demo:** [Click here to try the App](https://abhi6378-high-quality-content-generator-app-zd3axt.streamlit.app/)  
-*(Note: Replace the link above with your actual deployed URL if available)*
 
 A production-ready **Multi-Agent System** that automates high-quality content generation. Built with **CrewAI** and **Google Gemini**, wrapped in an interactive **Streamlit** dashboard.
 
