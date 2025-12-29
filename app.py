@@ -84,7 +84,7 @@ with st.sidebar:
 # ==============================================================================
 # 4️⃣ MAIN UI
 # ==============================================================================
-st.title("🕵️‍♂️ Multi-Agent Operations Center")
+st.title("High Quality content Generator")
 st.caption("🚀 Powered by CrewAI & Gemini Pro | Live Execution Logs Enabled")
 
 # Input Section
