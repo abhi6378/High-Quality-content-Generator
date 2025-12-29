@@ -1,127 +1,117 @@
-# 🚀 High Quality Content Generator
+# High Quality Content Generator
 
-**🔴 Live Demo:** [Click here to try the App](https://abhi6378-high-quality-content-generator-app-zd3axt.streamlit.app/)  
+Live Demo:  
+https://abhi6378-high-quality-content-generator-app-zd3axt.streamlit.app/
 
-A production-ready **Multi-Agent System** that automates high-quality content generation. Built with **CrewAI** and **Google Gemini**, wrapped in an interactive **Streamlit** dashboard.
+A production-ready **Multi-Agent Content Generation System** built using **CrewAI**, **Google Gemini**, and **Streamlit**.
 
-Unlike standard chatbots, this application employs a **Squad of 4 Specialized AI Agents** working in a sequential pipeline to Plan, Research, Write, and Review content, mimicking a real-world editorial team.
-
----
-
-## 🧩 Agent Roles & Responsibilities
-
-We utilize **Role-Based Agent Engineering** to ensure specific accountability.
-
-| Agent Icon | Role | Responsibility |
-| :---: | :--- | :--- |
-| 🧠 | **The Planner** | Breaks down vague user goals into a structured logical outline. Prevents aimless wandering. |
-| 🔍 | **The Researcher** | Scours for accurate facts, statistics, and technical details based *only* on the Planner's outline. |
-| ✍️ | **The Writer** | Synthesizes the research into a cohesive, engaging narrative or report. Focuses on flow and tone. |
-| ⚖️ | **The Reviewer** | Performs Quality Assurance (QA). Checks for clarity, grammatical errors, and alignment with the user's original goal. |
+Unlike single-prompt chatbots, this application uses **four specialized AI agents** working in a sequential pipeline to plan, research, write, and review content — similar to a real editorial workflow.
 
 ---
 
+## Agent Roles and Responsibilities
+
+| Role | Responsibility |
+|-----|---------------|
+| Planner | Converts a vague goal into a structured outline |
+| Researcher | Collects facts, statistics, and technical data |
+| Writer | Produces a coherent and engaging draft |
+| Reviewer | Performs QA, grammar checks, and alignment validation |
+
 ---
 
-## 🔄 Task Flow Architecture
+## Task Flow Architecture
 
-This project uses a **Sequential Process** architecture.  
-The output of one agent becomes the context for the next.
+This project follows a **Sequential Process Architecture**.  
+The output of one agent becomes the input for the next.
 
 ```mermaid
 graph LR
-    User[User Input] --> A[Planner]
-    A -->|Outline| B[Researcher]
-    B -->|Facts & Data| C[Writer]
-    C -->|Draft| D[Reviewer]
-    D -->|Final Polish| Result[Final Report]
+    User[User Input] --> Planner[Planner]
+    Planner --> Researcher[Researcher]
+    Researcher --> Writer[Writer]
+    Writer --> Reviewer[Reviewer]
+    Reviewer --> Result[Final Report]
+Why Multi-Agent?
+Most LLM applications suffer from "Jack of all trades, master of none."
 
-    
-🚀 Why Multi-Agent?
-Most LLM applications suffer from "Jack of all trades, master of none." By using a Multi-Agent Architecture, we achieve:
+This system avoids that by enforcing separation of responsibilities:
 
-Separation of Concerns: The "Writer" doesn't need to worry about fact-checking; the "Researcher" has already done it. This reduces cognitive load on the model.
+The Writer does not invent facts
 
-Self-Correction: A dedicated "Reviewer" agent acts as a final filter, catching errors that a single-shot prompt might miss.
+The Researcher does not worry about tone
 
-Complex Reasoning: Breaking a task into [Plan → Research → Execute] mimics human cognitive workflows, leading to significantly higher quality output.
+The Reviewer validates accuracy and clarity
 
-🛡️ How Hallucination is Reduced
-One of the biggest risks in AI is hallucination (inventing facts). This project mitigates that risk through Contextual Anchoring:
+The Planner controls scope and structure
 
-The Planner's Guardrails: The Planner sets the scope immediately. The Researcher is not allowed to search outside this scope.
+This results in higher accuracy, better reasoning, and cleaner output.
 
-Sequential Dependency: The Writer is not allowed to invent information. It is strictly instructed to use only the data provided by the Researcher.
+How Hallucination Is Reduced
+Hallucinations are minimized through contextual anchoring:
 
-The Reviewer Step: The final agent is explicitly prompted to look for inconsistencies. If the text claims "X is true" but the research didn't support it, the Reviewer flags or fixes it.
+Planner defines strict scope
 
-🛠️ Installation & Setup
+Researcher works only within that scope
+
+Writer can only use researcher output
+
+Reviewer flags unsupported claims
+
+This layered validation significantly improves reliability.
+
+Installation and Setup
 Prerequisites
 Python 3.10+
 
-A Google Gemini API Key (Get it from Google AI Studio)
+Google Gemini API Key
 
-1. Clone the Repository
-Bash
-
-git clone [https://github.com/yourusername/high-quality-content-generator.git](https://github.com/yourusername/high-quality-content-generator.git)
-cd high-quality-content-generator
-2. Create a Virtual Environment (Recommended)
-Windows:
-
-Bash
-
-python -m venv venv
-venv\Scripts\activate
-Mac/Linux:
-
-Bash
-
+Clone Repository
+bash
+Copy code
+git clone https://github.com/abhi6378/High-Quality-content-Generator.git
+cd High-Quality-content-Generator
+Create Virtual Environment
+bash
+Copy code
 python -m venv venv
 source venv/bin/activate
-3. Install Dependencies
-Bash
+Windows:
 
+bash
+Copy code
+venv\Scripts\activate
+Install Dependencies
+bash
+Copy code
 pip install -r requirements.txt
-💻 Usage
-Run the Streamlit application:
+Usage
+Run the Streamlit app:
 
-Bash
-
+bash
+Copy code
 streamlit run app.py
-The web interface will open in your browser (usually http://localhost:8501).
+Open https://abhi6378-high-quality-content-generator-app-zd3axt.streamlit.app/
 
-Enter your Google API Key in the sidebar (it is handled securely and never saved).
+Enter your Gemini API key in the sidebar
 
-Type your goal (e.g., "Write a guide on AI in Healthcare").
+Enter a content goal
 
-Watch the agents work in real-time and download the final report.
+Watch agents execute sequentially
 
-📂 Project Structure
-Plaintext
+Download the final report
 
-high-quality-content-generator/
-├── app.py              # Main application logic (Streamlit + CrewAI)
-├── requirements.txt    # Project dependencies
-├── README.md           # Documentation
-└── .gitignore          # Files to ignore in version control
-👤 Author
-Abhishek 🔗 LinkedIn Profile (Add your actual link here)
+Project Structure
+css
+Copy code
+High-Quality-content-Generator/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+└── .gitignore
+Author
+Abhishek Vaishnav
 
-🤝 Contributing
-Contributions are welcome! Please follow these steps:
-
-Fork the project.
-
-Create your feature branch (git checkout -b feature/AmazingFeature).
-
-Commit your changes (git commit -m 'Add some AmazingFeature').
-
-Push to the branch (git push origin feature/AmazingFeature).
-
-Open a Pull Request.
-
-📜 License
-Distributed under the MIT License. See LICENSE for more information.
-
-<div align="center"> Built with ❤️ using <a href="https://www.crewai.com/">CrewAI</a> & <a href="https://streamlit.io/">Streamlit</a> </div>
+GitHub:
+https://github.com/abhi6378
