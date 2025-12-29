@@ -5,70 +5,74 @@ https://abhi6378-high-quality-content-generator-app-zd3axt.streamlit.app/
 
 A production-ready **Multi-Agent Content Generation System** built using **CrewAI**, **Google Gemini**, and **Streamlit**.
 
-Unlike single-prompt chatbots, this application uses **four specialized AI agents** working in a sequential pipeline to plan, research, write, and review content — similar to a real editorial workflow.
+Unlike single-prompt chatbots, this application uses **four specialized AI agents** working in a strict sequential pipeline to plan, research, write, and review content — similar to a real editorial workflow.
 
 ---
 
 ## Agent Roles and Responsibilities
 
 | Role | Responsibility |
-|-----|---------------|
-| Planner | Converts a vague goal into a structured outline |
-| Researcher | Collects facts, statistics, and technical data |
-| Writer | Produces a coherent and engaging draft |
-| Reviewer | Performs QA, grammar checks, and alignment validation |
+|------|---------------|
+| Planner | Converts a vague goal into a clear and structured outline |
+| Researcher | Collects facts, statistics, and technical information |
+| Writer | Produces a coherent, engaging, and well-structured draft |
+| Reviewer | Performs QA, grammar checks, and goal alignment |
 
 ---
 
-## Task Flow Architecture
+## Task Flow Architecture (Sequential)
 
-This project follows a **Sequential Process Architecture**.  
-The output of one agent becomes the input for the next.
+This project follows a **Sequential Process Architecture**.
 
-```mermaid
-graph LR
-    User[User Input] --> Planner[Planner]
-    Planner --> Researcher[Researcher]
-    Researcher --> Writer[Writer]
-    Writer --> Reviewer[Reviewer]
-    Reviewer --> Result[Final Report]
-Why Multi-Agent?
-Most LLM applications suffer from "Jack of all trades, master of none."
+Flow:
 
-This system avoids that by enforcing separation of responsibilities:
+1. User provides a content goal  
+2. Planner creates a structured outline  
+3. Researcher gathers supporting facts  
+4. Writer generates the draft  
+5. Reviewer validates quality and accuracy  
+6. Final report is produced  
 
-The Writer does not invent facts
+Each step depends strictly on the output of the previous step.
 
-The Researcher does not worry about tone
+---
 
-The Reviewer validates accuracy and clarity
+## Why Multi-Agent?
 
-The Planner controls scope and structure
+Most LLM applications suffer from **"Jack of all trades, master of none."**
 
-This results in higher accuracy, better reasoning, and cleaner output.
+This system avoids that problem by enforcing **separation of responsibilities**:
 
-How Hallucination Is Reduced
-Hallucinations are minimized through contextual anchoring:
+- The Writer does not invent facts  
+- The Researcher does not worry about writing style  
+- The Reviewer acts as a quality gate  
+- The Planner controls scope and direction  
 
-Planner defines strict scope
+This results in **better reasoning, higher accuracy, and cleaner output**.
 
-Researcher works only within that scope
+---
 
-Writer can only use researcher output
+## How Hallucination Is Reduced
 
-Reviewer flags unsupported claims
+Hallucinations are minimized through **contextual anchoring**:
+
+- Planner defines a strict scope  
+- Researcher works only within that scope  
+- Writer uses only researcher-provided information  
+- Reviewer flags or corrects unsupported claims  
 
 This layered validation significantly improves reliability.
 
-Installation and Setup
-Prerequisites
-Python 3.10+
+---
 
-Google Gemini API Key
+## Installation and Setup
 
-Clone Repository
-bash
-Copy code
+### Prerequisites
+- Python 3.10 or higher
+- Google Gemini API Key
+
+### Clone the Repository
+```bash
 git clone https://github.com/abhi6378/High-Quality-content-Generator.git
 cd High-Quality-content-Generator
 Create Virtual Environment
@@ -86,16 +90,18 @@ bash
 Copy code
 pip install -r requirements.txt
 Usage
-Run the Streamlit app:
+Run the Streamlit application:
 
 bash
 Copy code
 streamlit run app.py
-Open the live app
+Steps:
 
-Enter your Gemini API key
+Open the app in your browser
 
-Enter a content goal
+Enter your Gemini API key in the sidebar
+
+Provide a content goal
 
 Watch agents execute sequentially
 
@@ -114,3 +120,4 @@ Abhishek Vaishnav
 
 GitHub:
 https://github.com/abhi6378
+
